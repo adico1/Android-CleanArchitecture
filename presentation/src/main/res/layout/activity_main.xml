@@ -1,34 +1,73 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    android:background="@drawable/background_photo"
+    tools:context="com.tigaomobile.lockinapp.lockscreen.presentation.view.activity.MainActivity">
 
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/url"
+  <WebView
+      android:id="@+id/fullscreen_content"
       android:gravity="center"
-      />
-
-  <ImageView
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:src="@drawable/logo"
-      android:contentDescription="@string/string_content_description"
+      android:layout_height="match_parent"
+      android:visibility="invisible"
+      android:textColor="#33b5e5"
+      android:textSize="50sp"
+      android:textStyle="bold"
+      android:background="@android:color/transparent"
       />
-
-  <Button
-      android:id="@+id/btn_LoadData"
+  <!-- The primary full-screen view. This can be replaced with whatever view
+       is needed to present your content, e.g. VideoView, SurfaceView,
+       TextureView, etc. -->
+  <TextView
+      android:id="@+id/fullscreen_text_content"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/btn_text_load_data"
-      />
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:text="@string/dummy_content"
+      android:textColor="#33b5e5"
+      android:textSize="50sp"
+      android:textStyle="bold" />
 
-</LinearLayout>
+  <!-- This FrameLayout insets its children based on system windows using
+       android:fitsSystemWindows. -->
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="?metaButtonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/black_overlay"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+      <Button
+          android:id="@+id/dummy_button"
+          style="?metaButtonBarButtonStyle"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Finish Activity" />
+      <Button
+          android:id="@+id/to_background_button"
+          style="?metaButtonBarButtonStyle"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Send Activity To Background" />
+      <Button
+          android:id="@+id/to_home_button"
+          style="?metaButtonBarButtonStyle"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Open Home Activity" />
+    </LinearLayout>
+  </FrameLayout>
+
+</FrameLayout>

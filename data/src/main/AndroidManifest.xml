@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fernandocejas.android10.sample.data">
+    package="com.tigaomobile.lockinapp.lockscreen.data">
 
+  <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
   <application android:allowBackup="true" />
 </manifest>

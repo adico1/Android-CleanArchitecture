@@ -5,20 +5,21 @@ buildscript {
   repositories {
     jcenter()
     mavenCentral()
+    google()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.2'
+    classpath 'com.android.tools.build:gradle:3.1.2'
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
   }
 }
 
 allprojects {
   ext {
-    androidApplicationId = 'com.fernanependocejas.android10.sample.presentation'
+    androidApplicationId = 'com.tigaomobile.lockinapp.lockscreen.presentation'
     androidVersionCode = 1
     androidVersionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-    testApplicationId = 'com.fernandocejas.android10.sample.presentation.test'
+    testApplicationId = 'com.tigaomobile.lockinapp.lockscreen.presentation.test'
   }
 }
 
@@ -38,3 +39,7 @@ task runAcceptanceTests(dependsOn: [':presentation:connectedAndroidTest']) {
   description 'Run application acceptance tests.'
 }
 
+
+repositories {
+  google()
+}
