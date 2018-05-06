@@ -1,5 +1,6 @@
 package com.tigaomobile.lockinapp.lockscreen.presentation.view.activity;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -39,6 +40,12 @@ public class MainActivity extends BaseActivity {
   @BindView(R.id.dummy_button) Button dummy_button;
   @BindView(R.id.to_background_button) Button to_background_button;
   @BindView(R.id.to_home_button) Button to_home_button;
+  @BindView(R.id.fullscreen_content) WebView webView;
+
+  @Override protected void onResume() {
+    super.onResume();
+
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +98,7 @@ public class MainActivity extends BaseActivity {
     return activeNetworkInfo != null && activeNetworkInfo.isConnected();
   }
   private void loadWebView() {
-    String url = "http://www.dev.adicococo.com/lockscreen/main.html";
+    final String url = "http://www.dev.adicococo.com/lockscreen/main.html";
 
     //        Bundle args = getArguments();
     //        if(args!=null) {
@@ -101,7 +108,6 @@ public class MainActivity extends BaseActivity {
     //            }
     //        }
 
-    final WebView webView = findViewById(R.id.fullscreen_content);
     WebSettings webSettings = webView.getSettings();
     webSettings.setJavaScriptEnabled(true);
     //webView.addJavascriptInterface(new WebAppInterface(getBaseProject()), "Android");
@@ -125,27 +131,24 @@ public class MainActivity extends BaseActivity {
       boolean tWebViewVisibility = true;
       boolean redirect = false;
 
+      @SuppressWarnings("deprecation")
       @Override
-      public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-        super.onReceivedError(view, request, error);
+      public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+        // Handle the error
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-          Log.i(TAG, "onReceivedError" + error.getErrorCode() + " "  + error.getDescription());
+          Log.i(TAG, "onReceivedError: " + errorCode + " "  + description);
         }
-        Log.i(TAG, "onReceivedError: " + error.toString());
 
-        tWebViewVisibility = false;
+        if(failingUrl.toString().contains(url)) {
+          tWebViewVisibility = false;
+        }
       }
 
+      @TargetApi(android.os.Build.VERSION_CODES.M)
       @Override
-      public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-        super.onReceivedHttpError(view, request, errorResponse);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-          Log.i(TAG, "onReceivedError" + errorResponse.getStatusCode() + " "  + errorResponse.getReasonPhrase());
-        }
-        Log.i(TAG, "onReceivedError: " + errorResponse.toString());
-
-        tWebViewVisibility = false;
+      public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
+        // Redirect to deprecated method, so you can use it in all SDK versions
+        onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
       }
 
       @Override

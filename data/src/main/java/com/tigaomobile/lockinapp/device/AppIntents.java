@@ -2,8 +2,10 @@ package com.tigaomobile.lockinapp.device;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.SystemClock;
 
 /**
@@ -32,18 +34,36 @@ public class AppIntents {
   }
 
   public static void startLockScreenActivity(Context context) {
+    restartService(context);
+
+    //Context app = context.getApplicationContext();
+    //
+    //Intent i = app.getPackageManager()
+    //    .getLaunchIntentForPackage(app.getPackageName() );
+    //
+    //i.addFlags(
+    //    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+    //    Intent.FLAG_ACTIVITY_NEW_TASK |
+    //    Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS |
+    //    Intent.FLAG_ACTIVITY_CLEAR_TASK |
+    //    Intent.FLAG_ACTIVITY_NO_HISTORY );
+    //
+    //app.startActivity(i);
+  }
+
+  public static void restartService(Context context) {
     Context app = context.getApplicationContext();
 
-    Intent i = app.getPackageManager()
-        .getLaunchIntentForPackage(app.getPackageName() );
-
-    i.addFlags(
+    PackageManager packageManager = app.getPackageManager();
+    Intent intent = packageManager.getLaunchIntentForPackage( app.getPackageName());
+    ComponentName componentName = intent.getComponent();
+    Intent mainIntent = Intent.makeRestartActivityTask(componentName);
+    mainIntent.setFlags(
         Intent.FLAG_ACTIVITY_CLEAR_TOP |
         Intent.FLAG_ACTIVITY_NEW_TASK |
         Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS |
         Intent.FLAG_ACTIVITY_CLEAR_TASK |
         Intent.FLAG_ACTIVITY_NO_HISTORY );
-
-    context.startActivity(i);
+    app.startActivity(mainIntent);
   }
 }

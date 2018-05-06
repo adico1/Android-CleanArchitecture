@@ -19,4 +19,9 @@ public interface DeviceManager {
    * Unhook from the device.
    */
   void disconnectDevice();
+
+  /**
+   * Disable device keyguard.
+   */
+  void disableDeviceKeyGuard();
 }
