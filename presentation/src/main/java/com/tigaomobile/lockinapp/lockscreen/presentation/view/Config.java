@@ -79,7 +79,6 @@ public class Config {
         menuLocation =  buttonGroup.getString("location");
         menuStyle = buttonGroup.getString("style");
 
-
         properties.setProperty("pkgName", appInfo.getString("pkgName"));
         properties.setProperty("appName", appInfo.getString("appName"));
         properties.setProperty("firstTimeUrl", residentAppInfo.getString("firstTimeUrl"));
