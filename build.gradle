@@ -6,20 +6,23 @@ buildscript {
     jcenter()
     mavenCentral()
     google()
+    maven { url 'https://maven.fabric.io/public' }
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.1.2'
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    classpath 'io.fabric.tools:gradle:1.25.2'
+    classpath 'com.google.gms:google-services:3.2.0'
   }
 }
 
 allprojects {
   ext {
-    androidApplicationId = 'com.tigaomobile.lockinapp.lockscreen.presentation'
+    androidApplicationId = 'com.tigaomobile.lockinapp'
     androidVersionCode = 1
     androidVersionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-    testApplicationId = 'com.tigaomobile.lockinapp.lockscreen.presentation.test'
+    testApplicationId = 'com.tigaomobile.lockinapp.test'
   }
 }
 

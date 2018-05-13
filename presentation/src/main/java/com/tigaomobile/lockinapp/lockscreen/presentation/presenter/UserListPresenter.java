@@ -55,6 +55,10 @@ public class UserListPresenter implements Presenter {
     this.viewListView = view;
   }
 
+  @Override public void init() {
+
+  }
+
   @Override public void resume() {}
 
   @Override public void pause() {}

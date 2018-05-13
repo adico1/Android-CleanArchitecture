@@ -1,0 +1,30 @@
+{
+  "appInfo":{
+    "pkgName": "com_conversationlevel_lock",
+    "appName": "edu"
+  },
+  "residentAppInfo":{
+    "firstTimeUrl":""
+  },
+  "views":{
+    "lockView":{
+      "buttonGroup": {
+        "controlBtn": {"x": 400, "y": 1860, "icon": "lock"},
+        "location": "bottom", // | "top", "bottom", "left", "right", "center", "top-left", "top-right", ...
+        "style": "circle", //  | "line", "circle", "scatter", ...
+        "actions":[
+          {"x": 100, "y": 1860, "icon": "camera", "action": "camera"},
+          {"x": 220, "y": 1700, "icon": "whatsapp", "action": "whatsapp"},
+          {"x": 340, "y": 1540, "icon": "phone", "action": "phone"},
+          {"x": 560, "y": 1540, "icon": "facebook", "action": "facebook"},
+          {"x": 660, "y": 1700, "icon": "chrome", "action": "chrome", "url": ""},
+          {"x": 760, "y": 1860, "icon": "unlock", "action": "unlock"}
+        ]
+      }
+    },
+    "webView":[
+      {"url":"http://www.byoml.com/blog/mobile"},
+      {"url":"http://mobile.genieo.com/android/"}
+    ]
+  }
+}

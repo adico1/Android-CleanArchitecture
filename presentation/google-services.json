@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "405838117612",
+    "firebase_url": "https://lockscreen-573b4.firebaseio.com",
+    "project_id": "lockscreen-573b4",
+    "storage_bucket": "lockscreen-573b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405838117612:android:c525c2043ee7b59a",
+        "android_client_info": {
+          "package_name": "com.tigaomobile.lockinapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405838117612-tkhj66oeih6fltj9q57cun8vg8r17arb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tigaomobile.lockinapp",
+            "certificate_hash": "7d5d6015614dc1fb69287bfc15a7f33f86b68e29"
+          }
+        },
+        {
+          "client_id": "405838117612-5qg2gm0pqvnmfk9veuh61fsgfaa1v9qf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tigaomobile.lockinapp",
+            "certificate_hash": "2ed974117508a583c21e6e4947d192ec60753272"
+          }
+        },
+        {
+          "client_id": "405838117612-92l3dtkkiguu8cginktb0sk5dmq9qei3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBykq6BAzgGCQlY6lZ2G0pps-txvakpzU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405838117612-92l3dtkkiguu8cginktb0sk5dmq9qei3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

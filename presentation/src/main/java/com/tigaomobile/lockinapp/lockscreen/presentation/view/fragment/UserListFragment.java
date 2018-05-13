@@ -21,6 +21,7 @@ import com.tigaomobile.lockinapp.lockscreen.presentation.R;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.UserComponent;
 import com.tigaomobile.lockinapp.lockscreen.presentation.model.UserModel;
 import com.tigaomobile.lockinapp.lockscreen.presentation.presenter.UserListPresenter;
+import com.tigaomobile.lockinapp.lockscreen.presentation.view.Config;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.UserListView;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.adapter.UsersAdapter;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.adapter.UsersLayoutManager;
@@ -37,6 +38,13 @@ public class UserListFragment extends BaseFragment implements UserListView {
    */
   public interface UserListListener {
     void onUserClicked(final UserModel userModel);
+  }
+
+  private Config config;
+
+  @Override
+  public void setConfig(Config config) {
+    this.config = config;
   }
 
   @Inject UserListPresenter userListPresenter;

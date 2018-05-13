@@ -144,11 +144,17 @@ public class MainActivity extends BaseActivity {
         }
       }
 
-      @TargetApi(android.os.Build.VERSION_CODES.M)
+      @TargetApi(Build.VERSION_CODES.M)
       @Override
       public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
         // Redirect to deprecated method, so you can use it in all SDK versions
         onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
+      }
+
+      @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+      @Override
+      public void onReceivedHttpError(WebView view, WebResourceRequest req, WebResourceResponse rerr) {
+        onReceivedError(view, rerr.getStatusCode(), rerr.getReasonPhrase(), req.getUrl().toString());
       }
 
       @Override

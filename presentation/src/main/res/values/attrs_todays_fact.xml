@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="TodaysFact">
+        <attr name="text" format="string" />
+        <attr name="query" format="string" />
+    </declare-styleable>
+</resources>

@@ -17,17 +17,23 @@ package com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.modules;
 
 import android.content.Context;
 import com.tigaomobile.lockinapp.device.DeviceAdapter;
+import com.tigaomobile.lockinapp.lockscreen.data.cache.ThemeCache;
+import com.tigaomobile.lockinapp.lockscreen.data.cache.ThemeCacheImpl;
 import com.tigaomobile.lockinapp.lockscreen.data.cache.UserCache;
 import com.tigaomobile.lockinapp.lockscreen.data.cache.UserCacheImpl;
 import com.tigaomobile.lockinapp.lockscreen.data.executor.JobExecutor;
+import com.tigaomobile.lockinapp.lockscreen.data.repository.ThemeDataRepository;
 import com.tigaomobile.lockinapp.lockscreen.data.repository.UserDataRepository;
 import com.tigaomobile.lockinapp.lockscreen.domain.device.DeviceManager;
 import com.tigaomobile.lockinapp.lockscreen.domain.executor.PostExecutionThread;
 import com.tigaomobile.lockinapp.lockscreen.domain.executor.ThreadExecutor;
+import com.tigaomobile.lockinapp.lockscreen.domain.repository.ThemeRepository;
 import com.tigaomobile.lockinapp.lockscreen.domain.repository.UserRepository;
 import com.tigaomobile.lockinapp.lockscreen.presentation.AndroidApplication;
 import com.tigaomobile.lockinapp.lockscreen.presentation.UIThread;
 
+import com.tigaomobile.lockinapp.lockscreen.presentation.device.TelephonyManager;
+import com.tigaomobile.lockinapp.lockscreen.presentation.view.Config;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -59,11 +65,27 @@ public class ApplicationModule {
     return userCache;
   }
 
+  @Provides @Singleton ThemeCache provideThemeCache(ThemeCacheImpl themeCache) {
+    return themeCache;
+  }
+
   @Provides @Singleton UserRepository provideUserRepository(UserDataRepository userDataRepository) {
     return userDataRepository;
+  }
+
+  @Provides @Singleton ThemeRepository provideThemeRepository(ThemeDataRepository themeDataRepository) {
+    return themeDataRepository;
   }
 
   @Provides @Singleton DeviceManager provideDeviceManager(DeviceAdapter deviceAdapter) {
     return deviceAdapter;
   }
+
+  @Provides @Singleton TelephonyManager provideTelephonyManager(TelephonyManager telephonyManager) {
+    return telephonyManager;
+  }
+
+  //@Provides @Singleton Config provideConfig(Config config) {
+  //  return config;
+  //}
 }

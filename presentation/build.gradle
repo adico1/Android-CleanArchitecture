@@ -1,4 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+  maven { url 'https://maven.fabric.io/public' }
+}
 
 android {
   dexOptions {
@@ -45,10 +50,10 @@ android {
     quiet true
     abortOnError false
     ignoreWarnings true
-    disable 'InvalidPackage'            //Some libraries have issues with this.
-    disable 'OldTargetApi'              //Lint gives this warning but SDK 20 would be Android L Beta.
-    disable 'IconDensities'             //For testing purpose. This is safe to remove.
-    disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
+    disable 'InvalidPackage' //Some libraries have issues with this.
+    disable 'OldTargetApi' //Lint gives this warning but SDK 20 would be Android L Beta.
+    disable 'IconDensities' //For testing purpose. This is safe to remove.
+    disable 'IconMissingDensityFolder' //For testing purpose. This is safe to remove.
   }
 
   signingConfigs {
@@ -77,6 +82,7 @@ dependencies {
   implementation project(':data')
 
   implementation presentationDependencies.dagger
+  implementation 'com.google.firebase:firebase-crash:15.0.2'
   annotationProcessor presentationDependencies.daggerCompiler
   implementation presentationDependencies.butterKnife
   annotationProcessor presentationDependencies.butterKnifeCompiler
@@ -88,6 +94,11 @@ dependencies {
   //implementation presentationDependencies.supportCoreUtils
   implementation presentationDependencies.supportAppCompact
 
+  implementation 'com.google.firebase:firebase-core:15.0.2'
+  implementation 'com.google.firebase:firebase-database:15.0.1'
+  implementation 'com.google.firebase:firebase-auth:15.1.0'
+  implementation 'com.google.android.gms:play-services-auth:15.0.1'
+
   androidTestImplementation presentationTestDependencies.mockito
   androidTestImplementation presentationTestDependencies.dexmaker
   androidTestImplementation presentationTestDependencies.dexmakerMockito
@@ -95,5 +106,10 @@ dependencies {
   androidTestImplementation presentationTestDependencies.testingSupportLib
 
   //Development
+  implementation('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+    transitive = true
+  }
   implementation developmentDependencies.leakCanary
 }
+
+apply plugin: 'com.google.gms.google-services'

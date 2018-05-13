@@ -19,6 +19,7 @@ import com.tigaomobile.lockinapp.lockscreen.presentation.R;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.UserComponent;
 import com.tigaomobile.lockinapp.lockscreen.presentation.model.UserModel;
 import com.tigaomobile.lockinapp.lockscreen.presentation.presenter.UserDetailsPresenter;
+import com.tigaomobile.lockinapp.lockscreen.presentation.view.Config;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.UserDetailsView;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.component.AutoLoadImageView;
 import com.fernandocejas.arrow.checks.Preconditions;
@@ -33,6 +34,13 @@ public class UserDetailsFragment extends BaseFragment implements UserDetailsView
 
   @Inject
   UserDetailsPresenter userDetailsPresenter;
+
+  private Config config;
+
+  @Override
+  public void setConfig(Config config) {
+    this.config = config;
+  }
 
   @BindView(R.id.iv_cover)
   AutoLoadImageView iv_cover;

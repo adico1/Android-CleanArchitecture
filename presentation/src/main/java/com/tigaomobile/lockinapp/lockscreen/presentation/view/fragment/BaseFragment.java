@@ -5,9 +5,10 @@
  */
 package com.tigaomobile.lockinapp.lockscreen.presentation.view.fragment;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.HasComponent;
+import com.tigaomobile.lockinapp.lockscreen.presentation.view.Config;
 
 /**
  * Base {@link android.app.Fragment} class for every fragment in this application.
@@ -29,4 +30,6 @@ public abstract class BaseFragment extends Fragment {
   protected <C> C getComponent(Class<C> componentType) {
     return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
   }
+
+  public abstract void setConfig(Config config);
 }

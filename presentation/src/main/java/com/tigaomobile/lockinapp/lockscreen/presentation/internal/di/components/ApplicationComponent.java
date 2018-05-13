@@ -19,8 +19,11 @@ import android.app.Application;
 import android.content.Context;
 
 import com.tigaomobile.lockinapp.lockscreen.domain.device.DeviceManager;
+import com.tigaomobile.lockinapp.lockscreen.domain.repository.ThemeRepository;
 import com.tigaomobile.lockinapp.lockscreen.presentation.AndroidApplication;
+import com.tigaomobile.lockinapp.lockscreen.presentation.device.TelephonyManager;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.modules.ApplicationModule;
+import com.tigaomobile.lockinapp.lockscreen.presentation.view.Config;
 import com.tigaomobile.lockinapp.lockscreen.presentation.view.activity.BaseActivity;
 import com.tigaomobile.lockinapp.lockscreen.domain.executor.PostExecutionThread;
 import com.tigaomobile.lockinapp.lockscreen.domain.executor.ThreadExecutor;
@@ -42,5 +45,6 @@ public interface ApplicationComponent {
   ThreadExecutor threadExecutor();
   PostExecutionThread postExecutionThread();
   UserRepository userRepository();
+  ThemeRepository themeRepository();
   DeviceManager deviceManager();
 }

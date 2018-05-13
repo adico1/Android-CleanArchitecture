@@ -18,11 +18,7 @@ package com.tigaomobile.lockinapp.lockscreen.presentation;
 import android.app.Activity;
 import android.app.Application;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.ApplicationComponent;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.DaggerApplicationComponent;
@@ -80,7 +76,7 @@ public class AndroidApplication extends Application {
       @Override
       public void onActivityStopped(Activity activity) {
         Log.i(TAG, "onActivityStopped");
-        Debug.stopMethodTracing();
+        //Debug.stopMethodTracing();
       }
 
       @Override

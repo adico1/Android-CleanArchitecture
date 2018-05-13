@@ -21,6 +21,12 @@ package com.tigaomobile.lockinapp.lockscreen.presentation.presenter;
 public interface Presenter {
   /**
    * Method that control the lifecycle of the view. It should be called in the view's
+   * (Activity or Fragment) onCreate() method.
+   */
+  void init();
+
+  /**
+   * Method that control the lifecycle of the view. It should be called in the view's
    * (Activity or Fragment) onResume() method.
    */
   void resume();
