@@ -20,10 +20,14 @@ import android.app.Application;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import com.crashlytics.android.Crashlytics;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.ApplicationComponent;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.components.DaggerApplicationComponent;
 import com.tigaomobile.lockinapp.lockscreen.presentation.internal.di.modules.ApplicationModule;
 import com.squareup.leakcanary.LeakCanary;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Android Main Application
@@ -35,6 +39,8 @@ public class AndroidApplication extends Application {
 
   @Override public void onCreate() {
     super.onCreate();
+    Fabric.with(this, new Crashlytics());
+    Crashlytics.log(1, TAG, "Starting LockInApp application crashlytics log");
     this.initializeInjector();
     this.initializeLeakDetection();
   }
