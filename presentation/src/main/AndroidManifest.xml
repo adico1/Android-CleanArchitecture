@@ -35,6 +35,10 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="303673d3e3550762a4b14ce15d3ef4bbb11b704a"
+        />
 
     <activity
         android:name="com.tigaomobile.lockinapp.lockscreen.presentation.view.activity.UserListActivity"

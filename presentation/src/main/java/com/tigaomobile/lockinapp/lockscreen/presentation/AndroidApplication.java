@@ -40,7 +40,7 @@ public class AndroidApplication extends Application {
   @Override public void onCreate() {
     super.onCreate();
     Fabric.with(this, new Crashlytics());
-    Crashlytics.log(1, TAG, "Starting LockInApp application crashlytics log");
+    Crashlytics.log("Starting LockInApp application crashlytics log");
     this.initializeInjector();
     this.initializeLeakDetection();
   }
