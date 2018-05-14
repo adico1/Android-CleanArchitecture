@@ -96,22 +96,22 @@ public class LockscreenPageFragment extends BaseAppFragment {
 //            }
 //        }
 
-        WebView webView = rootView.findViewById(R.id.fullscreen_content);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(new WebAppInterface(getBaseProject()), "Android");
-
-        webView.getSettings().setAppCacheMaxSize( 5 * 1024 * 1024 ); // 5MB
-        webView.getSettings().setAppCachePath( getActivity().getApplicationContext().getCacheDir().getAbsolutePath() );
-        webView.getSettings().setAllowFileAccess( true );
-        webView.getSettings().setAppCacheEnabled( true );
-        webView.getSettings().setCacheMode( WebSettings.LOAD_DEFAULT ); // load online by default
-
-        if ( !isNetworkAvailable() ) { // loading offline
-            webView.getSettings().setCacheMode( WebSettings.LOAD_CACHE_ELSE_NETWORK );
-        }
-
-        webView.loadUrl(url); // + "?v=" + Math.random());
+        //WebView webView = rootView.findViewById(R.id.fullscreen_content);
+        //WebSettings webSettings = webView.getSettings();
+        //webSettings.setJavaScriptEnabled(true);
+        //webView.addJavascriptInterface(new WebAppInterface(getBaseProject()), "Android");
+        //
+        //webView.getSettings().setAppCacheMaxSize( 5 * 1024 * 1024 ); // 5MB
+        //webView.getSettings().setAppCachePath( getActivity().getApplicationContext().getCacheDir().getAbsolutePath() );
+        //webView.getSettings().setAllowFileAccess( true );
+        //webView.getSettings().setAppCacheEnabled( true );
+        //webView.getSettings().setCacheMode( WebSettings.LOAD_DEFAULT ); // load online by default
+        //
+        //if ( !isNetworkAvailable() ) { // loading offline
+        //    webView.getSettings().setCacheMode( WebSettings.LOAD_CACHE_ELSE_NETWORK );
+        //}
+        //
+        //webView.loadUrl(url); // + "?v=" + Math.random());
 
         // Step 4 - Setup the listener for this object
         mButtonView.setCustomObjectListener(new ButtonGroup.ButtonGroupListener() {

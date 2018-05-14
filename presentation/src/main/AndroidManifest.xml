@@ -8,16 +8,17 @@
   <!--<uses-permission android:name="android.permission.DUMP" />-->
   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-  <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <!--<uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />-->
+  <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
   <!--<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" android:protectionLevel="signature" />-->
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
   <application
       android:allowBackup="true"
       android:name="com.tigaomobile.lockinapp.lockscreen.presentation.AndroidApplication"
-      android:icon="@drawable/ic_launcher"
+      android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
       android:theme="@style/AppTheme">
 
     <activity

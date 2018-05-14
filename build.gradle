@@ -19,9 +19,9 @@ buildscript {
 allprojects {
   ext {
     androidApplicationId = 'com.tigaomobile.lockinapp'
-    androidVersionCode = 1
-    androidVersionName = "1.0"
-    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    androidVersionCode = 21
+    androidVersionName = "32.${androidVersionCode}"
+    testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
     testApplicationId = 'com.tigaomobile.lockinapp.test'
   }
 }
